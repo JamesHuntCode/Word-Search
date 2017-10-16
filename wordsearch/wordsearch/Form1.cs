@@ -78,7 +78,7 @@ namespace wordsearch
         }
 
         // Method used to reload the word search
-        private void button1_Click(object sender, EventArgs e)
+        private void btnRefresh_Click(object sender, EventArgs e)
         {
             this.doWordSearch();
         }
@@ -99,8 +99,11 @@ namespace wordsearch
             this.wordSearch.Rows.Add(10);
 
             // Setting up arrays of pre-installed words for the user to find + an alphabet array:
-            string[] words = new string[5] { "hello", "world", "food", "example", "code" };
+            string[] words = { "hello", "world", "food", "example", "code", "java", "program" };
             string word = words[getRand(0, words.Length)];
+
+            // Tell the user what word they are looking for:
+            this.lblWord.Text = "Word to look for: " + word;
 
             // Setting up directions for the word to span:
             int[] directions = new int[8] { 1, 2, 3, 4, 5, 6, 7, 8 };
@@ -119,7 +122,7 @@ namespace wordsearch
             for (int i = 0; i < word.Length; i++)
             {
                 this.wordSearch[currentPoint.X, currentPoint.Y].Value = word[i];
-                this.wordSearch[currentPoint.X, currentPoint.Y].Style.BackColor = Color.Red;
+                this.wordSearch[currentPoint.X, currentPoint.Y].Style.BackColor = Color.LightGray;
                 switch (direction)
                 {
                     case 1:

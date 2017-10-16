@@ -7,3 +7,12 @@ c:\users\jhunt8\documents\visual studio 2015\Projects\wordsearch\wordsearch\obj\
 c:\users\jhunt8\documents\visual studio 2015\Projects\wordsearch\wordsearch\obj\Debug\wordsearch.csproj.GenerateResource.Cache
 c:\users\jhunt8\documents\visual studio 2015\Projects\wordsearch\wordsearch\obj\Debug\wordsearch.exe
 c:\users\jhunt8\documents\visual studio 2015\Projects\wordsearch\wordsearch\obj\Debug\wordsearch.pdb
+D:\wordsearch\wordsearch\bin\Debug\wordsearch.exe.config
+D:\wordsearch\wordsearch\obj\Debug\wordsearch.exe
+D:\wordsearch\wordsearch\obj\Debug\wordsearch.pdb
+D:\wordsearch\wordsearch\bin\Debug\wordsearch.exe
+D:\wordsearch\wordsearch\bin\Debug\wordsearch.pdb
+D:\wordsearch\wordsearch\obj\Debug\wordsearch.csprojResolveAssemblyReference.cache
+D:\wordsearch\wordsearch\obj\Debug\wordsearch.Form1.resources
+D:\wordsearch\wordsearch\obj\Debug\wordsearch.Properties.Resources.resources
+D:\wordsearch\wordsearch\obj\Debug\wordsearch.csproj.GenerateResource.Cache
