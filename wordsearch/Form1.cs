@@ -99,6 +99,15 @@ namespace wordsearch
             }
             this.wordSearch.Rows.Add(10);
 
+            // For loops used to fill in remaining gaps after the word has been layed out inside the grid:
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    this.wordSearch[i, j].Value = (char)(('a') + getRand(0, 26));
+                }
+            }
+
             // Setting up arrays of pre-installed words for the user to find + an alphabet array:#
             this.locationsOfLetters = new List<Point>();
             string[] words = this.lstWords.Items.OfType<string>().ToArray();
@@ -128,7 +137,7 @@ namespace wordsearch
             for (int i = 0; i < word.Length; i++)
             {
                 this.wordSearch[currentPoint.X, currentPoint.Y].Value = word[i];
-                this.locationsOfLetters.Add(new Point(currentPoint.X, currentPoint.Y));
+                this.locationsOfLetters.Add(currentPoint);
                 this.wordSearch[currentPoint.X, currentPoint.Y].Style.BackColor = Color.LightGray;
                 switch (direction)
                 {
@@ -162,19 +171,6 @@ namespace wordsearch
                         currentPoint.Y = (currentPoint.Y - 1);
                         currentPoint.X = (currentPoint.X - 1);
                         break;
-                }
-            }
-
-
-            // For loops used to fill in remaining gaps after the word has been layed out inside the grid:
-            for (int i = 0; i < 10; i++)
-            {
-                for (int j = 0; j < 10; j++)
-                {
-                    if (this.wordSearch[i, j].Value == null)
-                    {
-                        this.wordSearch[i, j].Value = (char)(('a') + getRand(0, 26));
-                    }
                 }
             }
         }
