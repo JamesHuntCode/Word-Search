@@ -108,13 +108,15 @@ namespace wordsearch
                 }
             }
 
-            // Setting up arrays of pre-installed words for the user to find + an alphabet array:#
+            // Setting up arrays of pre-installed words for the user to find + an alphabet array:
             this.locationsOfLetters = new List<Point>();
             string[] words = this.lstWords.Items.OfType<string>().ToArray();
-
+            
+            //If there are no words don't continue running this method
             if (words.Length == 0)
                 return;
-
+            
+            //Get random word
             string word = words[getRand(0, words.Length)];
 
             // Tell the user what word they are looking for:
@@ -177,6 +179,7 @@ namespace wordsearch
 
         private void btnAddWord_Click(object sender, EventArgs e)
         {
+            //Add a word to the listbox of words available
             string wordEdited = this.txtInput.Text.Replace(" ", "");
             if (wordEdited.Length > 0 && wordEdited.Length <= 10 && !this.lstWords.Items.Contains(wordEdited))
             {
@@ -190,11 +193,13 @@ namespace wordsearch
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
+            //Removing a word from the available words
             this.lstWords.Items.Remove(this.lstWords.SelectedItem);
         }
 
         private void btnReadFile_Click(object sender, EventArgs e)
         {
+            //Adding a file full of words into the listbox of available words
             DialogResult result = this.openFileDialog.ShowDialog(); 
             if (result == DialogResult.OK) 
             {
@@ -214,16 +219,24 @@ namespace wordsearch
         private List<Point> locationsOfLetters;
         private void selectionChanged(object sender, EventArgs e)
         {
+            /*
+            Check to see if the user has selected all the letters positions allowing for the word to
+            be found
+            */
+            
             DataGridViewSelectedCellCollection cells = this.wordSearch.SelectedCells;
 
             if (cells.Count <= 0 || this.locationsOfLetters == null)
                 return;
-
+            
+            //Points selected
             List<Point> pointsSelected = new List<Point>();
             foreach (DataGridViewTextBoxCell cell in cells)
             {
                 pointsSelected.Add(new Point(cell.ColumnIndex, cell.RowIndex));
             }
+            
+            //If the letters positions are the same as the selected positions
             if (pointsSelected.All(this.locationsOfLetters.Contains) && pointsSelected.Count == this.locationsOfLetters.Count)
                 this.label1.Text = "Found word";
             else
